@@ -15,7 +15,7 @@ module.exports = () => {
       install: './src/js/install.js'
     },
     output: {
-      filename: '[PWAtextEditor].[chunkhash].js',
+      filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
@@ -23,7 +23,31 @@ module.exports = () => {
         template: './index.html',
         title: 'Webpack Plugin',
       }),
-      new MiniCssExtractPlugin()
+      new MiniCssExtractPlugin(),
+
+      // service worker
+      new InjectManifest({
+        swSrc: './src-sw.js',
+        swDest: 'src-sw.js',
+      }),
+
+      new WebpackPwaManifest(
+        {
+          name: "Jate",
+          short_name: "Jate",
+          start_url: "index.html",
+          publicPath: './',
+          theme_color: '#225ca3',
+          background_color: '#225ca3',
+          icons: [
+            {
+              src: path.resolve('src/images/logo.png'),
+              sizes: [96, 128, 192, 256, 384, 512],
+              destination: path.join('assets', 'icons'),
+            },
+          ],
+        }
+      ),
     ],
 
     module: {
