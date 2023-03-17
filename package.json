@@ -19,10 +19,6 @@
     "if-env": "^1.0.4"
   },
   "devDependencies": {
-    "concurrently": "^5.2.0",
-    "node": "^19.7.0",
-    "nodemon": "^2.0.4",
-    "webpack": "^5.76.2",
-    "webpack-cli": "^4.8.0"
+    "concurrently": "^5.2.0"
   }
 }
