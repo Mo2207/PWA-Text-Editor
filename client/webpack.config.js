@@ -31,11 +31,15 @@ module.exports = () => {
         swDest: 'src-sw.js',
       }),
 
+      // manifest.json
       new WebpackPwaManifest(
         {
+          fingerprints: false,
+          inject: true,
           name: "Jate",
           short_name: "Jate",
-          start_url: "index.html",
+          description: "Just another text editor!",
+          start_url: "/",
           publicPath: './',
           theme_color: '#225ca3',
           background_color: '#225ca3',
