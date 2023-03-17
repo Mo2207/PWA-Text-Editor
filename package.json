@@ -20,7 +20,8 @@
   },
   "devDependencies": {
     "concurrently": "^5.2.0",
+    "node": "^19.7.0",
     "nodemon": "^2.0.4",
-    "node": "^19.7.0"
+    "webpack": "^5.76.2"
   }
 }
