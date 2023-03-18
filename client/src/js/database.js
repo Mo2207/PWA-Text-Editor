@@ -25,7 +25,7 @@ export const putDb = async (content) => {
     const objStore = trans.objectStore('jate');
 
     // add to the database
-    const data = objStore.add({value: content});
+    const data = objStore.put({value: content});
 
     const result = await data;
     console.log('Content saved to the database', result);
