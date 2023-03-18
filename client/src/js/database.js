@@ -25,7 +25,11 @@ export const putDb = async (content) => {
     const objStore = trans.objectStore('jate');
 
     // add to the database
-    const data = objStore.put({value: content});
+    let newContent = {
+      value: content,
+      id: 1
+    }
+    const data = objStore.put(newContent);
 
     const result = await data;
     console.log('Content saved to the database', result);
@@ -46,8 +50,10 @@ export const getDb = async () => {
   const objStore = trans.objectStore('jate');
 
   // store the data in a variable and return it
-  const data = await objStore.get(1);
-  return data;
+  let data = {};
+  data = await objStore.get(1);
+  console.log(data)
+  return data.value;
 }
 
 initdb();
