@@ -46,7 +46,7 @@ export const getDb = async () => {
   const objStore = trans.objectStore('jate');
 
   // store the data in a variable and return it
-  const data = await objStore.getAll();
+  const data = await objStore.get(1);
   return data;
 }
 
